@@ -1,7 +1,7 @@
 import { babel } from '@rollup/plugin-babel';
-import nodeExternals from 'rollup-plugin-node-externals';
 import replace from '@rollup/plugin-replace';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
+import nodeExternals from 'rollup-plugin-node-externals';
 
 /** @type {import('rollup').RollupOptions} */
 const config = {
