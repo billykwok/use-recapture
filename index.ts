@@ -7,7 +7,7 @@ export function useRecapture<P extends any[] = any[], R = void>(
   const ref = useRef<(...args: P) => R>(initialValue);
   const stableRef = useCallback((...args: P) => ref.current?.(...args), [ref]);
   const recapture = useCallback(
-    (callback: (...args: P) => R) => {
+    (callback?: (...args: P) => R) => {
       ref.current = callback;
     },
     [ref]
