@@ -1,7 +1,7 @@
 {
   "name": "use-recapture",
   "description": "Like useCallback, but supports imperative recapturing and always returns stable reference",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "exports": {
     "types": "./types/index.d.ts",
