@@ -1,5 +1,11 @@
 # use-recapture
 
+## 1.0.3
+
+### Patch Changes
+
+- fix: fix type not accepting nullish recapture argument
+
 ## 1.0.2
 
 ### Patch Changes

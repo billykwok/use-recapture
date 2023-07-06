@@ -3,13 +3,11 @@ import { useCallback, useRef } from 'react';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useRecapture<P extends any[] = any[], R = void>(
   initialValue?: (...args: P) => R
-): [(...args: P) => R, (callback: (...args: P) => R) => void] {
+): [(...args: P) => R, (callback?: ((...args: P) => R) | null) => void] {
   const ref = useRef<(...args: P) => R>(initialValue);
   const stableRef = useCallback((...args: P) => ref.current?.(...args), [ref]);
   const recapture = useCallback(
-    (callback?: (...args: P) => R) => {
-      ref.current = callback;
-    },
+    (callback?: ((...args: P) => R) | null) => (ref.current = callback),
     [ref]
   );
   return [stableRef, recapture];
