@@ -26,14 +26,14 @@ describe('useRecapture', () => {
 
   test('should maintain stable reference after recapture', () => {
     const version1 = jest.fn((i: number | string) =>
-      console.log(`Version 1 called with "${i}"`)
+      console.log(`Version 1 called with "${i}"`),
     );
     const version2 = jest.fn((i: number | string) =>
-      console.log(`Version 2 called with "${i}"`)
+      console.log(`Version 2 called with "${i}"`),
     );
 
     const { result, rerender } = renderHook(() =>
-      useRecapture<[i: number | string], void>(version1)
+      useRecapture<[i: number | string], void>(version1),
     );
     const state = {
       get callback() {
@@ -73,15 +73,15 @@ describe('useRecapture', () => {
 describe('useEventEffect', () => {
   test('should maintain stable reference after recapture', () => {
     const version1 = jest.fn((i: number | string) =>
-      console.log(`Version 1 called with "${i}"`)
+      console.log(`Version 1 called with "${i}"`),
     );
     const version2 = jest.fn((i: number | string) =>
-      console.log(`Version 2 called with "${i}"`)
+      console.log(`Version 2 called with "${i}"`),
     );
 
     const { result, rerender } = renderHook(
       (effect) => useEventEffect(effect),
-      { initialProps: version1 }
+      { initialProps: version1 },
     );
     const stableReference = result.current;
     expect(version1).not.toHaveBeenCalled();
